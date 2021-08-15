@@ -22,16 +22,37 @@ public class E010309 {
 
     public static void main(String[] args) {
         In in = new In("algs4/e010309.txt");
-        String input = in.readLine();
-        StdOut.println(input);
-        String outputExpected = in.readLine();
-        StdOut.println(outputExpected);
 
-        while (in.hasNextChar())
-            StdOut.print(in.readChar());
+        String[] lines = in.readAllLines();
 
-        String outputActual = complete(input);
-        StdOut.println(outputActual);
+        for (int i = 0; i < lines.length; ) {
+//            StdOut.println(lines[i]);
+            String before = lines[i];
+            String expected = lines[i + 1];
+            String after = complete(before);
+
+            StdOut.printf("%-10s%s\n", "before:", before);
+            StdOut.printf("%-10s%s\n", "after:", after);
+            StdOut.printf("%-10s%s\n", "expected:", expected);
+
+            i += 2;
+        }
+        int count = 0;
+//        while (in.hasNextLine()) {
+//            String before = in.readLine();
+//
+//            count++;
+//        }
+//        String input = in.readLine();
+//        StdOut.println(input);
+//        String outputExpected = in.readLine();
+//        StdOut.println(outputExpected);
+//
+//        while (in.hasNextChar())
+//            StdOut.print(in.readChar());
+//
+//        String outputActual = complete(input);
+//        StdOut.println(outputActual);
     }
 
     private static String complete(String input) {
