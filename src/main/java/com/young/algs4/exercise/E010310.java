@@ -14,28 +14,41 @@ public class E010310 {
     public static String infixToPostfix(String infix) {
         Queue<String> queue = new Queue<>();
 
-        Stack<String> ops = new Stack<>();
-        Stack<String> vals = new Stack<>();
+        Stack<String> stack = new Stack<>();
 
+        String[] temp = new String[3];
         String[] arr = infix.split(" ");
+
         for (String s : arr) {
-            if ("(".equals(s)) ;// 忽略
-            else if ("+".equals(s)) ops.push(s);
-            else if ("-".equals(s)) ops.push(s);
-            else if ("*".equals(s)) ops.push(s);
-            else if ("/".equals(s)) ops.push(s);
-            else if (")".equals(s)) {
-                // 如果是右括号，弹出运算符和操作数，转后序表达式
-                if (!vals.isEmpty()) {
-                    queue.enqueue(vals.pop());
+            if (")".equals(s)) {
+                int count = 0;
+
+                while (!stack.isEmpty() && !"(".equals(stack.peek())) {
+                    temp[count++] = stack.pop();
                 }
-                if (!vals.isEmpty()) {
-                    queue.enqueue(vals.pop());
+
+                if (count > 0)
+                    stack.pop();
+
+                switch (count) {
+                    case 3:
+                        queue.enqueue(temp[2]);
+                        queue.enqueue(temp[0]);
+                        queue.enqueue(temp[1]);
+                        break;
+                    case 2:
+                        queue.enqueue(temp[1]);
+                        queue.enqueue(temp[0]);
+                        break;
+                    case 1:
+                        queue.enqueue(temp[0]);
+                        break;
+                    default:
+
                 }
-                queue.enqueue(ops.pop());
-            }
-            else { // 其他的都是数字，压入操作数栈
-                vals.push(s);
+
+            } else {
+                stack.push(s);
             }
         }
 
