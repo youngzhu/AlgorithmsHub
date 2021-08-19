@@ -14,42 +14,18 @@ public class E010310 {
     public static String infixToPostfix(String infix) {
         Queue<String> queue = new Queue<>();
 
-        Stack<String> stack = new Stack<>();
+        Stack<String> opStack = new Stack<>();
 
-        String[] temp = new String[3];
         String[] arr = infix.split(" ");
 
         for (String s : arr) {
-            if (")".equals(s)) {
-                int count = 0;
-
-                while (!stack.isEmpty() && !"(".equals(stack.peek())) {
-                    temp[count++] = stack.pop();
-                }
-
-                if (count > 0)
-                    stack.pop();
-
-                switch (count) {
-                    case 3:
-                        queue.enqueue(temp[2]);
-                        queue.enqueue(temp[0]);
-                        queue.enqueue(temp[1]);
-                        break;
-                    case 2:
-                        queue.enqueue(temp[1]);
-                        queue.enqueue(temp[0]);
-                        break;
-                    case 1:
-                        queue.enqueue(temp[0]);
-                        break;
-                    default:
-
-                }
-
-            } else {
-                stack.push(s);
-            }
+            if ("(".equals(s)) ;//
+            else if ("+".equals(s)) opStack.push(s);
+            else if ("-".equals(s)) opStack.push(s);
+            else if ("*".equals(s)) opStack.push(s);
+            else if ("/".equals(s)) opStack.push(s);
+            else if (")".equals(s)) queue.enqueue(opStack.pop());
+            else queue.enqueue(s);
         }
 
         return queue.toString();
