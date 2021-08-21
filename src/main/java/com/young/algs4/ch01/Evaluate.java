@@ -11,13 +11,14 @@ import edu.princeton.cs.algs4.StdOut;
  * @since 2021-08-07
  */
 public class Evaluate {
-    public static void main(String[] args) {
+
+    public static double evaluate(String infix) {
         Stack<String> ops = new Stack<>();
         Stack<Double> vals = new Stack<>();
 
-        while (!StdIn.isEmpty()) {
-            // 读取字符
-            String s = StdIn.readString();
+        String[] arr = infix.split(" ");
+
+        for (String s : arr) {
             // 如果是运算符则压入栈
             if ("(".equals(s)) ;// 忽略
             else if ("+".equals(s)) ops.push(s);
@@ -39,6 +40,12 @@ public class Evaluate {
                 vals.push(Double.valueOf(s));
             }
         }
-        StdOut.println(vals.pop());
+        return vals.pop();
+    }
+
+    public static void main(String[] args) {
+        String infix = StdIn.readLine();
+        double val = evaluate(infix);
+        StdOut.println(val);
     }
 }
