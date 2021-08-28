@@ -11,17 +11,18 @@ import edu.princeton.cs.algs4.StdOut;
  */
 public class E010508 {
     public static void main(String[] args) {
-        FooQuickFindUF uf = new FooQuickFindUF(6);
-//        QuickFindUF uf = new QuickFindUF(6);
+//        FooQuickFindUF uf = new FooQuickFindUF(6);
+        QuickFindUF uf = new QuickFindUF(6);
         /*
         三个元素 x < y < z
-        第一步 z-y 保证a[y]改变时，z还没遍历到
-        第二步 y-x 保证y的改变
-        第三步 z-x z和y应该关联，却没有关联，出错
+        第一步 z-y， 保证a[y]改变时，z还没遍历到
+        第二步 y-x， 保证y的改变
+        第三步 z-x或者x-z， z和x应该关联，却没有关联，出错
          */
         uf.union(5, 4);
         uf.union(4, 2);
-        uf.union(5, 2);
+//        uf.union(5, 2);
+        uf.union(2, 5);
         StdOut.println(uf.count() + " components");
     }
 
