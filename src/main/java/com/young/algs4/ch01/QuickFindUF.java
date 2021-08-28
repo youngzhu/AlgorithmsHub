@@ -17,6 +17,8 @@ public class QuickFindUF extends AbstractUF {
 
     @Override
     public void union(int p, int q) {
+        // 可以减少数组的访问次数
+        // 在正确性上也是必要的，参见练习 E010508.java
         int pRoot = find(p);
         int qRoot = find(q);
 
