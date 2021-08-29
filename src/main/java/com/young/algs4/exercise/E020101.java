@@ -1,5 +1,7 @@
 package com.young.algs4.exercise;
 
+import edu.princeton.cs.algs4.StdDraw;
+
 /**
  * 练习2.1.1 跟踪选择排序的轨迹
  *
@@ -19,6 +21,23 @@ public class E020101 extends TraceSort {
             }
             draw(a, i, i, min);
             swap(a, i, min);
+        }
+    }
+
+    void header(String[] a) {
+        int n = a.length;
+        StdDraw.setPenColor(StdDraw.BLACK);
+        StdDraw.text(n / 2.0, -3, "a[ ]");
+        for (int i = 0; i < n; i++) {
+            StdDraw.text(i, -2, i + "");
+        }
+        StdDraw.text(-2.50, -2, "i");
+        StdDraw.text(-1.25, -2, "min");
+        StdDraw.setPenColor(StdDraw.BOOK_RED);
+        StdDraw.line(-3, -1.65, n - 0.5, -1.65);
+        StdDraw.setPenColor(StdDraw.BLACK);
+        for (int i = 0; i < n; i++) {
+            StdDraw.text(i, -1, a[i]);
         }
     }
 

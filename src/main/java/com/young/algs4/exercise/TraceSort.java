@@ -32,34 +32,27 @@ abstract class TraceSort extends SortTemplate {
         }
     }
 
-    void header(String[] a) {
+    abstract void header(String[] a);
+
+    void footer(Comparable[] a) {
         int n = a.length;
         StdDraw.setPenColor(StdDraw.BLACK);
-        StdDraw.text(n / 2.0, -3, "a[ ]");
         for (int i = 0; i < n; i++) {
-            StdDraw.text(i, -2, i + "");
-        }
-        StdDraw.text(-2.50, -2, "i");
-        StdDraw.text(-1.25, -2, "min");
-        StdDraw.setPenColor(StdDraw.BOOK_RED);
-        StdDraw.line(-3, -1.65, n - 0.5, -1.65);
-        StdDraw.setPenColor(StdDraw.BLACK);
-        for (int i = 0; i < n; i++) {
-            StdDraw.text(i, -1, a[i]);
+            StdDraw.text(i, n, a[i] + "");
         }
     }
 
-    void footer(String[] a) {
-        int n = a.length;
-        StdDraw.setPenColor(StdDraw.BLACK);
-        for (int i = 0; i < n; i++) {
-            StdDraw.text(i, n, a[i]);
-        }
+    String[] readData() {
+        return readData("algs4/traceSort.txt");
+    }
+
+    String[] readData(String path) {
+        In in = new In(path);
+        return in.readAllStrings();
     }
 
     void trace() {
-        In in = new In("algs4/traceSort.txt");
-        String[] a = in.readAllStrings();
+        String[] a = readData();
 
         int n = a.length;
 
