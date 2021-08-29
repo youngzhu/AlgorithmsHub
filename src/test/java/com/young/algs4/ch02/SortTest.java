@@ -32,6 +32,11 @@ public class SortTest {
         test(new MergeSort());
     }
 
+    @Test
+    public void testMergeBU() {
+        test(new MergeSortBU());
+    }
+
     private void test(SortTemplate sorter) {
         sorter.execute(in.readAllStrings());
     }

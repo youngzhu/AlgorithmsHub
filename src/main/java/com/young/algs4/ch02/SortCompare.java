@@ -26,6 +26,15 @@ public class SortCompare {
             case "shell":
                 new ShellSort().sort(a);
                 break;
+            case "merge":
+                new MergeSort().sort(a);
+                break;
+            case "mergebu":
+                new MergeSortBU().sort(a);
+                break;
+            case "mergex":
+                new MergeSortX().sort(a);
+                break;
             default:
                 throw new IllegalArgumentException("unknown algorithm:" + alg);
         }
@@ -60,8 +69,17 @@ public class SortCompare {
         double t1 = timeRandomInput(alg1, N, T);
         double t2 = timeRandomInput(alg2, N, T);
 
-        StdOut.printf("For %d random Doubles\n    %s is", N, alg1);
-        StdOut.printf(" %f times faster than %s\n", t2/t1, alg2);
+        String faster = alg1;
+        String slower = alg2;
+        double times = t2 / t1;
+        if (times < 1.0) {
+            faster = alg2;
+            slower = alg1;
+            times = 1/times;
+        }
+
+        StdOut.printf("For %d random Doubles\n    %s is", N, faster);
+        StdOut.printf(" %.1f times faster than %s\n", times, slower);
     }
 
 }
