@@ -27,6 +27,11 @@ public class SortTest {
         test(new ShellSort());
     }
 
+    @Test
+    public void testMerge() {
+        test(new MergeSort());
+    }
+
     private void test(SortTemplate sorter) {
         sorter.execute(in.readAllStrings());
     }
