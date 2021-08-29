@@ -17,13 +17,13 @@ public abstract class SortTemplate {
         show(a);
     }
 
-    abstract void sort(Comparable[] a);
+    public abstract void sort(Comparable[] a);
 
-    boolean less(Comparable v1, Comparable v2) {
+    public boolean less(Comparable v1, Comparable v2) {
         return v1.compareTo(v2) < 0;
     }
 
-    void swap(Comparable[] a, int idxI, int idxJ) {
+    public void swap(Comparable[] a, int idxI, int idxJ) {
         Comparable t = a[idxI];
         a[idxI] = a[idxJ];
         a[idxJ] = t;

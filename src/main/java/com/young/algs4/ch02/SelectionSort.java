@@ -7,7 +7,7 @@ package com.young.algs4.ch02;
  */
 public class SelectionSort extends SortTemplate {
     @Override
-    void sort(Comparable[] a) {
+    public void sort(Comparable[] a) {
         final int N = a.length;
 
         for (int i = 0; i < N; i++) {

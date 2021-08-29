@@ -8,7 +8,7 @@ package com.young.algs4.ch02;
  */
 public class InsertionSort extends SortTemplate {
     @Override
-    void sort(Comparable[] a) {
+    public void sort(Comparable[] a) {
         final int N = a.length;
 
         for (int i = 1; i < N; i++) {
