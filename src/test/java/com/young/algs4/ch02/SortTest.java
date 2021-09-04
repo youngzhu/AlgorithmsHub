@@ -9,7 +9,7 @@ public class SortTest {
 
     @Before
     public void init() {
-        in = new In("algs4/tiny.txt");
+        in = new In("algs4/1Kints.txt");
     }
 
     @Test
@@ -33,8 +33,23 @@ public class SortTest {
     }
 
     @Test
+    public void testMergeX() {
+        test(new MergeSortX());
+    }
+
+    @Test
     public void testMergeBU() {
         test(new MergeSortBU());
+    }
+
+    @Test
+    public void testQuick() {
+        test(new QuickSort());
+    }
+
+    @Test
+    public void testQuickX() {
+        test(new QuickXSort());
     }
 
     private void test(SortTemplate sorter) {

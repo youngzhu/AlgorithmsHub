@@ -23,6 +23,8 @@ public class MergeSortX extends Merge {
     }
 
     private void sort(Comparable[] src, Comparable[] dst, int lo, int hi) {
+//        if (hi <= lo) return;
+
         // 优化点2
         if (hi <= lo + CUTOFF) {
             insertionSort(dst, lo, hi);
@@ -51,11 +53,23 @@ public class MergeSortX extends Merge {
         merge(src, dst, lo, mid, hi);
     }
 
-    private void insertionSort(Comparable[] a, int lo, int hi) {
-        for (int i = lo; i <= hi; i++) {
-            for (int j = 0; j > lo && less(a[j], a[j-1]); j--) {
-                swap(a, j, j-1);
-            }
+    @Override
+    void merge(Comparable[] src, Comparable[] dst, int lo, int mid, int hi) {
+        assert isSorted(src, lo, mid);
+        assert isSorted(src, mid + 1, hi);
+
+        int i = lo, j = mid + 1;
+        for (int k = lo; k <= hi; k++) {
+            if (i > mid)
+                dst[k] = src[j++];
+            else if (j > hi) {
+                dst[k] = src[i++];
+            } else if (less(src[j], src[i]))
+                dst[k] = src[j++];
+            else
+                dst[k] = src[i++];
         }
+
+        assert isSorted(dst, lo, hi);
     }
 }

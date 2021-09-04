@@ -35,6 +35,15 @@ public class SortCompare {
             case "mergex":
                 new MergeSortX().sort(a);
                 break;
+            case "quick":
+                new QuickSort().sort(a);
+                break;
+            case "quick3way":
+                new Quick3waySort().sort(a);
+                break;
+            case "quickx":
+                new QuickXSort().sort(a);
+                break;
             default:
                 throw new IllegalArgumentException("unknown algorithm:" + alg);
         }

@@ -14,7 +14,7 @@ public abstract class SortTemplate {
         StdOut.println("is sorted before sort:" + isSorted(a));
         sort(a);
         assert isSorted(a);
-        show(a);
+//        show(a);
     }
 
     public abstract void sort(Comparable[] a);
@@ -41,6 +41,14 @@ public abstract class SortTemplate {
                 return false;
         }
         return true;
+    }
+
+    protected void insertionSort(Comparable[] a, int lo, int hi) {
+        for (int i = lo + 1; i <= hi; i++) {
+            for (int j = i; j > lo && less(a[j], a[j-1]); j--) {
+                swap(a, j, j-1);
+            }
+        }
     }
 
     private void show(Comparable[] a) {
