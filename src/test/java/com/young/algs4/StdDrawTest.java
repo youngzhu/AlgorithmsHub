@@ -1,4 +1,4 @@
-package com.young.algs4.ch01;
+package com.young.algs4;
 
 import edu.princeton.cs.algs4.StdDraw;
 
