@@ -9,6 +9,8 @@ import java.util.concurrent.Executors;
  * 多线程版
  * 将各种排序同时显示
  *
+ * StdDraw 不支持多线程
+ *
  * @author youngzy
  * @since 2021-09-12
  */

@@ -32,7 +32,7 @@ public class E020117 {
         return a;
     }
 
-    static class Selection extends SortShow {
+    private static class Selection extends SortShow {
         @Override
         void sort(Double[] a) {
             final int N = a.length;
@@ -51,7 +51,7 @@ public class E020117 {
         }
     }
 
-    static class Insertion extends SortShow {
+    private static class Insertion extends SortShow {
         @Override
         void sort(Double[] a) {
             final int N = a.length;
