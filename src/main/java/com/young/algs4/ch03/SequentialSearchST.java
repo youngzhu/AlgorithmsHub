@@ -10,14 +10,13 @@ import edu.princeton.cs.algs4.StdOut;
  * @since 2021-09-20
  */
 public class SequentialSearchST<K, V> {
-    private int n; // 键值对的数量
-    private Node first;
+    int n; // 键值对的数量
+    Node first;
 
-
-    private class Node {
-        private K key;
-        private V value;
-        private Node next;
+    class Node {
+        K key;
+        V value;
+        Node next;
 
         Node(K key, V value, Node next) {
             this.key = key;
