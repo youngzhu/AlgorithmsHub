@@ -16,11 +16,11 @@ import java.util.List;
  * @since 2021-09-21
  */
 public class VisualFrequencyCounter {
-    static VisualSequentialSearchST<String, Integer> st;
+//    static VisualSequentialSearchST<String, Integer> st;
+    static VisualBinarySearchST<String, Integer> st = new VisualBinarySearchST<>();
 
     public static void main(String[] args) {
         In in = new In("src/test/resources/algs4/tale.txt");
-        st = new VisualSequentialSearchST<String, Integer>();
         count(in, 8);
     }
 
@@ -51,6 +51,47 @@ public class VisualFrequencyCounter {
 
         StdOut.println("X(words/puts): " + words);
         StdOut.println("Y(keys): " + distinct);
+    }
+
+    private static class VisualBinarySearchST<K extends Comparable<K>, V> extends BinarySearchST<K, V> {
+
+        int compareCounter;
+
+        @Override
+        public void put(K key, V value) {
+            if (key == null)
+                throw new IllegalArgumentException("key is null");
+
+            if (value == null) {
+                delete(key);
+                return;
+            }
+
+            compareCounter = 1;
+
+            int i = rank(key);
+
+            // key 已存在
+            if (i < n && keys[i].compareTo(key) == 0) {
+                values[i] = value;
+                return;
+            }
+
+            // key不存在，插入新的键值对
+            if (n == keys.length)
+                resize(2*n);
+
+            for (int j = n; j > i; j--) {
+                keys[j] = keys[j - 1];
+                values[j] = values[j - 1];
+
+                compareCounter++;
+            }
+            keys[i] = key;
+            values[i] = value;
+            n++;
+
+        }
     }
 
     private static class VisualSequentialSearchST<K extends Comparable<K>, V>

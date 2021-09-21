@@ -27,7 +27,7 @@ public class BinarySearchST<K extends Comparable<K>, V>
         values = (V[]) new Object[capacity];
     }
 
-    private void resize(int capacity) {
+    void resize(int capacity) {
         assert capacity >= n;
 
         K[] tempK = (K[]) new Comparable[capacity];
@@ -202,7 +202,7 @@ public class BinarySearchST<K extends Comparable<K>, V>
     // Check internal invariants
     //**********
 
-    private boolean check() {
+    boolean check() {
         return isSorted() && rankCheck();
     }
 
