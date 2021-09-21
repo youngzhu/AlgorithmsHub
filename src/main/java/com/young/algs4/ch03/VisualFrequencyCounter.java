@@ -53,7 +53,8 @@ public class VisualFrequencyCounter {
         StdOut.println("Y(keys): " + distinct);
     }
 
-    private static class VisualSequentialSearchST<K, V> extends SequentialSearchST<K, V> {
+    private static class VisualSequentialSearchST<K extends Comparable<K>, V>
+            extends SequentialSearchST<K, V> {
         int compareCounter;
 
         @Override

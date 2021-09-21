@@ -9,8 +9,9 @@ import edu.princeton.cs.algs4.StdOut;
  * @author youngzy
  * @since 2021-09-20
  */
-public class SequentialSearchST<K, V> {
-    int n; // 键值对的数量
+public class SequentialSearchST<K extends Comparable<K>, V>
+        extends AbstractST<K, V> {
+
     Node first;
 
     class Node {
@@ -23,20 +24,6 @@ public class SequentialSearchST<K, V> {
             this.value = value;
             this.next = next;
         }
-    }
-
-    public int size() {
-        return n;
-    }
-
-    public boolean isEmpty() {
-        return size() == 0;
-    }
-
-    public boolean contains(K key) {
-        if (key == null)
-            throw new IllegalArgumentException("key is null");
-        return get(key) != null;
     }
 
     public V get(K key) {
