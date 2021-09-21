@@ -17,20 +17,6 @@ import java.awt.*;
  * @since 2021-08-29
  */
 abstract class TraceSort extends SortTemplate {
-    void draw(Comparable[] a, int row, int ith, int min) {
-        StdDraw.setPenColor(StdDraw.BLACK);
-        StdDraw.text(-2.50, row, ith + "");
-        StdDraw.text(-1.25, row, min + "");
-        for (int i = 0; i < a.length; i++) {
-            if (i == min)
-                StdDraw.setPenColor(StdDraw.BOOK_RED);
-            else if (i < ith)
-                StdDraw.setPenColor(StdDraw.LIGHT_GRAY);
-            else
-                StdDraw.setPenColor(StdDraw.BLACK);
-            StdDraw.text(i, row, a[i] + "");
-        }
-    }
 
     abstract void header(String[] a);
 

@@ -36,7 +36,6 @@ public class E020109 extends TraceSort {
         }
     }
 
-    @Override
     void draw(Comparable[] a, int h, int ith, int jth) {
         StdDraw.setPenColor(StdDraw.BLACK);
         StdDraw.text(-3.75, line, h+"");
