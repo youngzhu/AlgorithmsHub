@@ -2,6 +2,7 @@ package com.young.algs4.ch02;
 
 import com.young.algs4.experiments.E020124;
 import com.young.algs4.experiments.E02012401;
+import com.young.algs4.experiments.E020125;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
@@ -51,6 +52,9 @@ public class SortCompare {
                 break;
             case "e012401":
                 new E02012401().sort(a);
+                break;
+            case "e0125":
+                new E020125().sort(a);
                 break;
             default:
                 throw new IllegalArgumentException("unknown algorithm: " + alg);
