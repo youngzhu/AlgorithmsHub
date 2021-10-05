@@ -51,7 +51,7 @@ public abstract class SortTemplate {
         }
     }
 
-    private void show(Comparable[] a) {
+    protected void show(Comparable[] a) {
         for (int i = 0; i < a.length; i++) {
             StdOut.print(a[i] + " ");
         }

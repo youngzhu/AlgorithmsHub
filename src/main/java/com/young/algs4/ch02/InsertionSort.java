@@ -16,7 +16,7 @@ public class InsertionSort extends SortTemplate {
             for (int j = i; j > 0 && less(a[j] ,a[j - 1]); j--) {
                 swap(a, j, j - 1);
             }
-            assert isSorted(a, 0, i);
+//            assert isSorted(a, 0, i);
         }
 
     }
